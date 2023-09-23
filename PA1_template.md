@@ -215,6 +215,8 @@ ggplot(avg_steps_per_interval, aes(x = interval, y = avg_steps)) +
          y = "Average Number of Steps") 
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/45351105-1406-48c9-8554-a1c86e97ce9b)
+
 
 ### Find the 5-minute interval with the maximum average steps
 ```{r}
@@ -330,6 +332,7 @@ hist(daily_totals_imputed$total_steps,
       ylim = y_axis_range)  # Set y-axis range) 
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/e9f5aaae-44cc-4957-ad94-f9af21f1d5f7)
 
 
 
