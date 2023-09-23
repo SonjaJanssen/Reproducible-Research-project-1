@@ -636,7 +636,8 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
     labs(title = "Average Number of Steps Taken per 5-Minute Interval (Weekdays vs. Weekends)") +
     scale_color_manual(values = c("weekday" = "blue", "weekend" = "red"))
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/eea6134d-b091-41ca-94ed-45f03f12aecb)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/48028ab8-ab90-4a4e-a742-819730ac0160)
+
    
 
 ### Reset plot area layout
