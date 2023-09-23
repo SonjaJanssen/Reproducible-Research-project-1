@@ -584,7 +584,6 @@ averages <- data_imputed %>%
 ## `.groups` argument.
 
 head(averages)
-```
 ## # A tibble: 6 × 3
 ## # Groups:   interval [3]
 ##   interval day_type avg_steps
@@ -595,6 +594,10 @@ head(averages)
 ## 4        5 weekend     0.0425
 ## 5       10 weekday     0.173 
 ## 6       10 weekend     0.0165
+
+
+```
+
 
 
 ### Create a panel plot with different colors for comparison
