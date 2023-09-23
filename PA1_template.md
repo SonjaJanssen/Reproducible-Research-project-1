@@ -360,7 +360,6 @@ write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
 ```{r}
 head(data_imputed)
 
-```
 ## # A tibble: 6 × 3
 ## # Groups:   interval [6]
 ##    steps date       interval
@@ -371,15 +370,17 @@ head(data_imputed)
 ## 4 0.151  2012-10-01       15
 ## 5 0.0755 2012-10-01       20
 ## 6 2.09   2012-10-01       25
+```
+
 
 ### First impute the daily total steps     
 ```{r}
 daily_totals_imputed <- data_imputed %>%
     group_by(date) %>%
     summarise(total_steps = sum(steps))
+
 head(daily_totals_imputed )
-    
-```
+
 ## # A tibble: 6 × 2
 ##   date       total_steps
 ##   <IDate>          <dbl>
@@ -389,6 +390,8 @@ head(daily_totals_imputed )
 ## 4 2012-10-04      12116 
 ## 5 2012-10-05      13294 
 ## 6 2012-10-06      15420
+
+```
 
 ### Create a histogram of the total number of steps taken each day
       R Colors: blues9, rainbow(n), heat.colors(n), terrain.colors(n), topo.colors(n), and cm.colors(n).
@@ -461,8 +464,6 @@ daily_totals_after <- data_imputed %>%
     group_by(date) %>%
     summarise(total_steps_after = sum(steps))
 ```
-
-
 
 ###  Create a layout for two histograms beside each other
         Create the first histogram (before imputation)
