@@ -112,11 +112,48 @@ data <- data.table::fread(input = "data/activity.csv")
 
 ### Examine the contents of the database
 ```{r}
-glimpse(data)                           
-data
-as.data.frame(sort(names(data)))   
-lapply(data, summary)
+glimpse(data)
 
+## Rows: 17,568
+## Columns: 3
+## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
+
+                          
+data
+
+##        steps       date interval
+##     1:    NA 2012-10-01        0
+##     2:    NA 2012-10-01        5
+##     3:    NA 2012-10-01       10
+##     4:    NA 2012-10-01       15
+##     5:    NA 2012-10-01       20
+##    ---                          
+## 17564:    NA 2012-11-30     2335
+## 17565:    NA 2012-11-30     2340
+## 17566:    NA 2012-11-30     2345
+## 17567:    NA 2012-11-30     2350
+## 17568:    NA 2012-11-30     2355
+
+
+as.data.frame(sort(names(data)))
+##   sort(names(data))
+## 1              date
+## 2          interval
+## 3             steps
+
+lapply(data, summary)
+## $steps
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
+## 
+## $date
+##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
+## 
+## $interval
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
 ```
 
 
@@ -149,6 +186,16 @@ total_steps_per_day <- data %>%
     summarise(total_steps = sum(steps, na.rm = TRUE))
 head(total_steps_per_day)
 
+## # A tibble: 6 × 2
+##   date       total_steps
+##   <IDate>          <int>
+## 1 2012-10-01           0
+## 2 2012-10-02         126
+## 3 2012-10-03       11352
+## 4 2012-10-04       12116
+## 5 2012-10-05       13294
+## 6 2012-10-06       15420
+
 ## library used
 library(dplyr)
 library(ggplot2)
@@ -171,7 +218,10 @@ median_steps_per_day <- median(total_steps_per_day$total_steps)
 
 cat("Mean Total Number of Steps Taken per Day (Ignoring Missing Values):", mean_steps_per_day, "\n")
 cat("Median Total Number of Steps Taken per Day (Ignoring Missing Values):", median_steps_per_day, "\n")
-``` 
+```
+## Mean Total Number of Steps Taken per Day (Ignoring Missing Values): 9354.23
+## Median Total Number of Steps Taken per Day (Ignoring Missing Values): 10395
+
 # Question 1
 ## What is mean total number of steps taken per day?
 ### Discussion:
@@ -227,6 +277,8 @@ max_avg_interval <- avg_steps_per_interval %>%
   
 cat("The 5-minute interval with the maximum average steps is:", max_avg_interval$interval, "\n")
 
+## The 5-minute interval with the maximum average steps is: 835
+
 ```
 # Question 2
 ## What is the average daily activity pattern?
@@ -275,6 +327,7 @@ cat("The 5-minute interval with the maximum average steps is:", max_avg_interval
 total_missing_values <- sum(is.na(data$steps))
 cat("Total Number of Missing Values in the Dataset:", total_missing_values, "\n")
 
+## Total Number of Missing Values in the Dataset: 2304
 ```
 ### Devise a strategy for filling in all of the missing values
     For simplicity, missing steps can be imputed with the mean steps for that 5-minute interval.
@@ -308,6 +361,16 @@ write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
 head(data_imputed)
 
 ```
+## # A tibble: 6 × 3
+## # Groups:   interval [6]
+##    steps date       interval
+##    <dbl> <IDate>       <int>
+## 1 1.72   2012-10-01        0
+## 2 0.340  2012-10-01        5
+## 3 0.132  2012-10-01       10
+## 4 0.151  2012-10-01       15
+## 5 0.0755 2012-10-01       20
+## 6 2.09   2012-10-01       25
 
 ### First impute the daily total steps     
 ```{r}
@@ -317,7 +380,15 @@ daily_totals_imputed <- data_imputed %>%
 head(daily_totals_imputed )
     
 ```
-
+## # A tibble: 6 × 2
+##   date       total_steps
+##   <IDate>          <dbl>
+## 1 2012-10-01      10766.
+## 2 2012-10-02        126 
+## 3 2012-10-03      11352 
+## 4 2012-10-04      12116 
+## 5 2012-10-05      13294 
+## 6 2012-10-06      15420
 
 ### Create a histogram of the total number of steps taken each day
       R Colors: blues9, rainbow(n), heat.colors(n), terrain.colors(n), topo.colors(n), and cm.colors(n).
@@ -344,6 +415,8 @@ cat("Mean total number of steps taken per day (After Imputation):", mean_steps_i
 cat("Median total number of steps taken per day (After Imputation):", median_steps_imputed, "\n")
 
 ```
+## Mean total number of steps taken per day (After Imputation): 10766.19
+## Median total number of steps taken per day (After Imputation): 10766.19
 
 # Question 3 
 ## Do these values differ from the estimates from the first part of the assignment? 
@@ -421,11 +494,13 @@ hist(daily_totals_after$total_steps_after,
 title("Histogram of Total Steps Taken Each Day (Before and After Imputation)", 
       outer = TRUE, line = -1.0, adj = 0.2, cex.main = 1.2)  # Adjust cex.main for font size
 
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/0a8fa8f0-c353-4d49-afc7-af0662e604e3)
+
 # Reset the par settings to default (important for rendering)
 par(mfrow = c(1, 1))
 
 ```
-![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/0a8fa8f0-c353-4d49-afc7-af0662e604e3)
+
 
 # Question 4
 ## What is the impact of imputing missing data on the estimates of the total daily number of steps?
@@ -504,8 +579,23 @@ data_imputed <- data_imputed %>%
 averages <- data_imputed %>%
     group_by(interval, day_type) %>%
     summarise(avg_steps = mean(steps, na.rm = TRUE))
+
+## `summarise()` has grouped output by 'interval'. You can override using the
+## `.groups` argument.
+
 head(averages)
 ```
+## # A tibble: 6 × 3
+## # Groups:   interval [3]
+##   interval day_type avg_steps
+##      <int> <chr>        <dbl>
+## 1        0 weekday     2.25  
+## 2        0 weekend     0.215 
+## 3        5 weekday     0.445 
+## 4        5 weekend     0.0425
+## 5       10 weekday     0.173 
+## 6       10 weekend     0.0165
+
 
 ### Create a panel plot with different colors for comparison
 ```{r}
@@ -591,12 +681,53 @@ par(mfrow = c(1, 1))
 
 ```{r}
 # Examine the contents of the database
-glimpse(data)                           
-data
-as.data.frame(sort(names(data)))   
-lapply(data, summary)
-str(data)
+glimpse(data)
 
+## Rows: 17,568
+## Columns: 3
+## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
+## $ interval <int> 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 100, 105, 110, …
+                       
+data
+##        steps       date interval
+##     1:    NA 2012-10-01        0
+##     2:    NA 2012-10-01        5
+##     3:    NA 2012-10-01       10
+##     4:    NA 2012-10-01       15
+##     5:    NA 2012-10-01       20
+##    ---                          
+## 17564:    NA 2012-11-30     2335
+## 17565:    NA 2012-11-30     2340
+## 17566:    NA 2012-11-30     2345
+## 17567:    NA 2012-11-30     2350
+## 17568:    NA 2012-11-30     2355
+
+as.data.frame(sort(names(data)))
+##   sort(names(data))
+## 1              date
+## 2          interval
+## 3             steps
+
+lapply(data, summary)
+## $steps
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
+## 
+## $date
+##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
+## 
+## $interval
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
+
+str(data)
+## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
+##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
+##  - attr(*, ".internal.selfref")=<externalptr>
 ```
  
 ### Data Cleaning:
@@ -609,12 +740,29 @@ str(data)
 data$steps[is.na(data$steps)] <- median(data$steps, na.rm = TRUE)
 data$steps[is.na(data$steps)]
 ```
-
+## numeric(0)
 ```{r}
 str(data)
+## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
+##  $ steps   : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
+##  - attr(*, ".internal.selfref")=<externalptr>
+
 data
 ```
-
+##        steps       date interval
+##     1:     0 2012-10-01        0
+##     2:     0 2012-10-01        5
+##     3:     0 2012-10-01       10
+##     4:     0 2012-10-01       15
+##     5:     0 2012-10-01       20
+##    ---                          
+## 17564:     0 2012-11-30     2335
+## 17565:     0 2012-11-30     2340
+## 17566:     0 2012-11-30     2345
+## 17567:     0 2012-11-30     2350
+## 17568:     0 2012-11-30     2355
 
 
 ### b. Detect and remove duplicate rows:
@@ -625,6 +773,18 @@ data
 data_no_duplicates <- data[!duplicated(data), ]
 data_no_duplicates
 
+##        steps       date interval
+##     1:     0 2012-10-01        0
+##     2:     0 2012-10-01        5
+##     3:     0 2012-10-01       10
+##     4:     0 2012-10-01       15
+##     5:     0 2012-10-01       20
+##    ---                          
+## 17564:     0 2012-11-30     2335
+## 17565:     0 2012-11-30     2340
+## 17566:     0 2012-11-30     2345
+## 17567:     0 2012-11-30     2350
+## 17568:     0 2012-11-30     2355
 ```
 
 ### c. Checking for Infinite Values and Non-Numeric Values:
@@ -659,13 +819,16 @@ data_no_duplicates
 ```{r}
 # You can skip these checks if your data doesn't have such issues.
 is.na(1)
+## [1] FALSE
+
 is.finite(1) # This code checks whether the value 1 is a finite numeric value.The result will be TRUE because 1 is indeed a finite numeric value.
-any(is.na(data$steps)) 
+
+any(is.na(data$steps))
+## [1] FALSE
+
 any(is.finite(data$steps))
-
+## [1] TRUE
 ```
-
-
 ### Visualization:
     a. Histogram of Steps (Including NA's):
 ```{r}
