@@ -878,7 +878,8 @@ ggplot(data, aes(x = steps)) +
   labs(title = "Histogram of Steps (Including NA's)", x = "Steps", y = "Frequency")
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/9e57f8fd-e4fb-436f-b53a-5ca4ee4cddde)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f6413eec-d480-4127-a155-c05443a69263)
+
     
 ```{r}
 # Load necessary libraries (if not already loaded)
