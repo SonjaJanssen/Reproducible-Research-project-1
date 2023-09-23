@@ -690,6 +690,8 @@ hist_without_na <- ggplot(data[!is.na(data$steps), ], aes(x = steps)) +
 grid.arrange(hist_with_na, hist_without_na, ncol = 2)
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d125affa-ffe6-4654-a8b3-a62bfe02ddc4)
+
 
 ### b. Time Series Plot of Steps:
 ```{r}
