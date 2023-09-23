@@ -99,16 +99,16 @@ Funtion.packages <- function(vector.packages){
 }      
 Funtion.packages(vector.packages)
 ```
-### Outcome  
-##  [1] "readr"
-##  [1] "ggplot2"
-##  [1] "dplyr"
-##  [1] "gridExtra"
-##  [1] "rstudioapi"
-##  [1] "data.table"
-##  [1] "lubridate"
-##  [1] "lattice"
-##  [1] "ggraph"
+## Outcome  
+    [1] "readr"
+    [1] "ggplot2"
+    [1] "dplyr"
+    [1] "gridExtra"
+    [1] "rstudioapi"
+    [1] "data.table"
+    [1] "lubridate"
+    [1] "lattice"
+    [1] "ggraph"
 
     
 ### Load the dataset
@@ -199,15 +199,15 @@ total_steps_per_day <- data %>%
 head(total_steps_per_day)
 
 # Outcome 
-## # A tibble: 6 × 2
-##   date       total_steps
-##   <IDate>          <int>
-## 1 2012-10-01           0
-## 2 2012-10-02         126
-## 3 2012-10-03       11352
-## 4 2012-10-04       12116
-## 5 2012-10-05       13294
-## 6 2012-10-06       15420
+## A tibble: 6 × 2
+## date       total_steps
+##    <IDate>          <int>
+##    1 2012-10-01          0
+##    2 2012-10-02        126
+##    3 2012-10-03      11352
+##    4 2012-10-04      12116
+##    5 2012-10-05      13294
+##    6 2012-10-06      15420
 
 ## library used
 library(dplyr)
@@ -235,8 +235,8 @@ cat("Mean Total Number of Steps Taken per Day (Ignoring Missing Values):", mean_
 cat("Median Total Number of Steps Taken per Day (Ignoring Missing Values):", median_steps_per_day, "\n")
 ```
 ### Outcome 
-## Mean Total Number of Steps Taken per Day (Ignoring Missing Values): 9354.23
-## Median Total Number of Steps Taken per Day (Ignoring Missing Values): 10395
+    Mean Total Number of Steps Taken per Day (Ignoring Missing Values): 9354.23
+    Median Total Number of Steps Taken per Day (Ignoring Missing Values): 10395
 
 # Question 1
 ## What is mean total number of steps taken per day?
@@ -296,7 +296,7 @@ cat("The 5-minute interval with the maximum average steps is:", max_avg_interval
 
 ```
 ### Outcome 
-## The 5-minute interval with the maximum average steps is: 835
+    The 5-minute interval with the maximum average steps is: 835
 
 
 # Question 2
@@ -346,8 +346,11 @@ cat("The 5-minute interval with the maximum average steps is:", max_avg_interval
 total_missing_values <- sum(is.na(data$steps))
 cat("Total Number of Missing Values in the Dataset:", total_missing_values, "\n")
 
-## Total Number of Missing Values in the Dataset: 2304
 ```
+### Outcome
+    Total Number of Missing Values in the Dataset: 2304
+
+
 ### Devise a strategy for filling in all of the missing values
     For simplicity, missing steps can be imputed with the mean steps for that 5-minute interval.
 
@@ -393,7 +396,6 @@ head(data_imputed)
 ## 6 2.09   2012-10-01       25
 
 ```
-
 
 ### First impute the daily total steps     
 ```{r}
@@ -444,8 +446,8 @@ cat("Median total number of steps taken per day (After Imputation):", median_ste
 
 ```
 ### Outcome
-    ## Mean total number of steps taken per day (After Imputation): 10766.19
-    ## Median total number of steps taken per day (After Imputation): 10766.19
+    Mean total number of steps taken per day (After Imputation): 10766.19
+    Median total number of steps taken per day (After Imputation): 10766.19
 
 # Question 3 
 ## Do these values differ from the estimates from the first part of the assignment? 
@@ -625,7 +627,6 @@ head(averages)
 ## 4        5 weekend     0.0425
 ## 5       10 weekday     0.173 
 ## 6       10 weekend     0.0165
-
 
 ```
 
