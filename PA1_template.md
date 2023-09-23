@@ -682,12 +682,12 @@ par(mfrow = c(1, 1))
 ```{r}
 # Examine the contents of the database
 glimpse(data)
-
 ## Rows: 17,568
 ## Columns: 3
 ## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 ## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
 ## $ interval <int> 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 100, 105, 110, …
+
                        
 data
 ##        steps       date interval
@@ -717,7 +717,6 @@ lapply(data, summary)
 ## $date
 ##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
-## 
 ## $interval
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
@@ -750,7 +749,6 @@ str(data)
 ##  - attr(*, ".internal.selfref")=<externalptr>
 
 data
-```
 ##        steps       date interval
 ##     1:     0 2012-10-01        0
 ##     2:     0 2012-10-01        5
@@ -763,6 +761,8 @@ data
 ## 17566:     0 2012-11-30     2345
 ## 17567:     0 2012-11-30     2350
 ## 17568:     0 2012-11-30     2355
+
+```
 
 
 ### b. Detect and remove duplicate rows:
@@ -772,7 +772,6 @@ data
 
 data_no_duplicates <- data[!duplicated(data), ]
 data_no_duplicates
-
 ##        steps       date interval
 ##     1:     0 2012-10-01        0
 ##     2:     0 2012-10-01        5
@@ -785,6 +784,7 @@ data_no_duplicates
 ## 17566:     0 2012-11-30     2345
 ## 17567:     0 2012-11-30     2350
 ## 17568:     0 2012-11-30     2355
+
 ```
 
 ### c. Checking for Infinite Values and Non-Numeric Values:
