@@ -174,7 +174,7 @@ lapply(data, summary)
     relationships between variables in a dataset. 
 ```{r}
 pairs(data[, 1:3])
-
+# plot 1
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/1faa34aa-8243-4e0d-b3e4-5f97a8aeb84c)
 
@@ -222,7 +222,7 @@ hist(total_steps_per_day$total_steps,
      breaks = 20,
      xlab = "Total Steps", 
      ylab = "Frequency")
-     
+# plot 2  
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f9346c1d-2ab6-4a8f-9fc2-ba9eaa96c774)
 
@@ -280,7 +280,7 @@ ggplot(avg_steps_per_interval, aes(x = interval, y = avg_steps)) +
     labs(title = "Time series plot of Average Daily Activity Pattern",
          x = "5-minute interval",
          y = "Average Number of Steps") 
-
+# plot 3
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/32421fef-ca79-4a6d-bd8d-b038d0ef195e)
 
@@ -427,9 +427,10 @@ hist(daily_totals_imputed$total_steps,
      breaks = 20,      # Adjust the number of bins if needed
      xlab = "Total Steps", ylab = "Frequency",
       ylim = y_axis_range)  # Set y-axis range) 
-
+ # plot 4
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/146477aa-ba30-4127-86e0-a703ae7ea796)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/47ccdda9-6025-4977-baf7-ad84932d3284)
+
    
 
 ### Calculate and report the mean and median total number of steps taken per day
@@ -518,11 +519,11 @@ hist(daily_totals_after$total_steps_after,
 # Set title above both histograms 
 title("Histogram of Total Steps Taken Each Day (Before and After Imputation)", 
       outer = TRUE, line = -1.0, adj = 0.2, cex.main = 1.2)  # Adjust cex.main for font size
+Plot 5
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/58c04eae-f5db-47cf-a6d5-fbe996901f00)
-    
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/045f641a-bdd0-49f6-a2a0-741d41b4949c)
 
-       
+           
 # Reset the par settings to default (important for rendering)
 ```{r}
 par(mfrow = c(1, 1))
@@ -635,11 +636,12 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
     ylab("Average Number of Steps") +
     labs(title = "Average Number of Steps Taken per 5-Minute Interval (Weekdays vs. Weekends)") +
     scale_color_manual(values = c("weekday" = "blue", "weekend" = "red"))
+#  plot 6
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/48028ab8-ab90-4a4e-a742-819730ac0160)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/3a12b6be-b224-4284-bdc0-eb6241de23e5)
+
 
    
-
 ### Reset plot area layout
 ```{r}
 par(mfrow = c(1, 1))
@@ -877,7 +879,7 @@ library(ggplot2)
 ggplot(data, aes(x = steps)) +
   geom_histogram(binwidth = 100, fill = "blue", color = "black") +
   labs(title = "Histogram of Steps (Including NA's)", x = "Steps", y = "Frequency")
-
+#  plot 7
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f6413eec-d480-4127-a155-c05443a69263)
 
@@ -899,7 +901,7 @@ hist_without_na <- ggplot(data[!is.na(data$steps), ], aes(x = steps)) +
 
 # Arrange the histograms side by side
 grid.arrange(hist_with_na, hist_without_na, ncol = 2)
-
+#  plot 8
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/578144ef-4f31-4100-864d-b1fc0d95ee06)
 
@@ -912,7 +914,7 @@ grid.arrange(hist_with_na, hist_without_na, ncol = 2)
 ggplot(data, aes(x = date, y = steps)) +
   geom_line() +
   labs(title = "Time Series Plot of Steps", x = "Date", y = "Steps")
-
+#  plot 9
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/da9f6042-742e-4024-ad48-b768cc69bc7a)
 
