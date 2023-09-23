@@ -177,7 +177,7 @@ pairs(data[, 1:3])
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f1cc9045-3084-4787-93c4-28533df97b03)
-# plot 1
+        ###### plot 1
 
 # Step 2
 ## What is mean total number of steps taken per day?
