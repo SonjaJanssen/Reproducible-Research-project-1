@@ -127,7 +127,8 @@ lapply(data, summary)
 pairs(data[, 1:3])
 
 ```
-https://github.com/SonjaJanssen/Reproducible-Research-project-1/blob/main/RPlots/Rplot%200.1%20scatterplot_matrix.png?raw=true
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/07cf219c-783c-4112-babb-3740ffde8450)
+
 
 
 # Step 2
