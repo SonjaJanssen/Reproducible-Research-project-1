@@ -177,7 +177,7 @@ pairs(data[, 1:3])
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f1cc9045-3084-4787-93c4-28533df97b03)
-
+# plot 1
 
 # Step 2
 ## What is mean total number of steps taken per day?
@@ -294,7 +294,6 @@ max_avg_interval <- avg_steps_per_interval %>%
     select(interval)
   
 cat("The 5-minute interval with the maximum average steps is:", max_avg_interval$interval, "\n")
-
 ```
 ### Outcome 
     The 5-minute interval with the maximum average steps is: 835
@@ -346,7 +345,6 @@ cat("The 5-minute interval with the maximum average steps is:", max_avg_interval
 ```{r}
 total_missing_values <- sum(is.na(data$steps))
 cat("Total Number of Missing Values in the Dataset:", total_missing_values, "\n")
-
 ```
 ### Outcome
     Total Number of Missing Values in the Dataset: 2304
@@ -375,26 +373,25 @@ data_imputed <- data %>%
 ### Save the imputed dataset to a new CSV file
 ```{r}
 write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
-
 ```
-
 
 ### Check the first few rows of the imputed dataset
 ```{r}
 head(data_imputed)
 ```
 ## Outcome 
- The 5-minute interval with the maximum average steps is: 835
-  A tibble: 6 × 3
-  Groups:   interval [6]
-    steps date       interval
-    <dbl> <IDate>       <int>
- 1 1.72   2012-10-01        0
- 2 0.340  2012-10-01        5
- 3 0.132  2012-10-01       10
- 4 0.151  2012-10-01       15
- 5 0.0755 2012-10-01       20
- 6 2.09   2012-10-01       25
+    head(data_imputed)
+     The 5-minute interval with the maximum average steps is: 835
+      A tibble: 6 × 3
+      Groups:   interval [6]
+        steps date       interval
+        <dbl> <IDate>       <int>
+     1 1.72   2012-10-01        0
+     2 0.340  2012-10-01        5
+     3 0.132  2012-10-01       10
+     4 0.151  2012-10-01       15
+     5 0.0755 2012-10-01       20
+     6 2.09   2012-10-01       25
 
 
 ### First impute the daily total steps     
@@ -409,15 +406,14 @@ head(daily_totals_imputed )
     head(daily_totals_imputed )
      The 5-minute interval with the maximum average steps is: 835
      A tibble: 6 × 2
-   date       total_steps
-   <IDate>          <dbl>
- 1 2012-10-01      10766.
- 2 2012-10-02        126 
- 3 2012-10-03      11352 
- 4 2012-10-04      12116 
- 5 2012-10-05      13294 
- 6 2012-10-06      15420
-
+       date       total_steps
+       <IDate>          <dbl>
+     1 2012-10-01      10766.
+     2 2012-10-02        126 
+     3 2012-10-03      11352 
+     4 2012-10-04      12116 
+     5 2012-10-05      13294 
+     6 2012-10-06      15420
 
 
 ### Create a histogram of the total number of steps taken each day
