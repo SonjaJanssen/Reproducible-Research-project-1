@@ -98,18 +98,17 @@ Funtion.packages <- function(vector.packages){
     }
 }      
 Funtion.packages(vector.packages)
-
 ```
-### > Funtion.packages(vector.packages)
-    [1] "readr"
-    [1] "ggplot2"
-    [1] "dplyr"
-    [1] "gridExtra"
-    [1] "rstudioapi"
-    [1] "data.table"
-    [1] "lubridate"
-    [1] "lattice"
-    [1] "ggraph"
+### Outcome  
+##  [1] "readr"
+##  [1] "ggplot2"
+##  [1] "dplyr"
+##  [1] "gridExtra"
+##  [1] "rstudioapi"
+##  [1] "data.table"
+##  [1] "lubridate"
+##  [1] "lattice"
+##  [1] "ggraph"
 
     
 ### Load the dataset
@@ -118,21 +117,21 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 download.file(fileUrl, destfile = paste0(getwd(), '/repdata%2Fdata%2Factivity.zip'), method = "curl")
 unzip("repdata%2Fdata%2Factivity.zip",exdir = "data")
 data <- data.table::fread(input = "data/activity.csv")
-
 ```
 
 ### Examine the contents of the database
 ```{r}
 glimpse(data)
 
+# Outcome
 ## Rows: 17,568
 ## Columns: 3
 ## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 ## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
-
-                          
+                         
 data
 
+# Outcome
 ##        steps       date interval
 ##     1:    NA 2012-10-01        0
 ##     2:    NA 2012-10-01        5
@@ -146,22 +145,25 @@ data
 ## 17567:    NA 2012-11-30     2350
 ## 17568:    NA 2012-11-30     2355
 
-
 as.data.frame(sort(names(data)))
+
+# Outcome 
 ##   sort(names(data))
 ## 1              date
 ## 2          interval
 ## 3             steps
 
 lapply(data, summary)
+
+# Outcome 
 ## $steps
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
-## 
+
 ## $date
 ##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
-## 
+
 ## $interval
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
@@ -176,7 +178,6 @@ pairs(data[, 1:3])
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f1cc9045-3084-4787-93c4-28533df97b03)
-
 
 
 # Step 2
@@ -197,6 +198,7 @@ total_steps_per_day <- data %>%
     summarise(total_steps = sum(steps, na.rm = TRUE))
 head(total_steps_per_day)
 
+# Outcome 
 ## # A tibble: 6 × 2
 ##   date       total_steps
 ##   <IDate>          <int>
@@ -232,6 +234,7 @@ median_steps_per_day <- median(total_steps_per_day$total_steps)
 cat("Mean Total Number of Steps Taken per Day (Ignoring Missing Values):", mean_steps_per_day, "\n")
 cat("Median Total Number of Steps Taken per Day (Ignoring Missing Values):", median_steps_per_day, "\n")
 ```
+### Outcome 
 ## Mean Total Number of Steps Taken per Day (Ignoring Missing Values): 9354.23
 ## Median Total Number of Steps Taken per Day (Ignoring Missing Values): 10395
 
@@ -291,9 +294,11 @@ max_avg_interval <- avg_steps_per_interval %>%
   
 cat("The 5-minute interval with the maximum average steps is:", max_avg_interval$interval, "\n")
 
+```
+### Outcome 
 ## The 5-minute interval with the maximum average steps is: 835
 
-```
+
 # Question 2
 ## What is the average daily activity pattern?
     Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -373,6 +378,9 @@ write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
 ### Check the first few rows of the imputed dataset
 ```{r}
 head(data_imputed)
+
+# Outcome 
+## The 5-minute interval with the maximum average steps is: 835
 ## # A tibble: 6 × 3
 ## # Groups:   interval [6]
 ##    steps date       interval
@@ -394,6 +402,9 @@ daily_totals_imputed <- data_imputed %>%
     summarise(total_steps = sum(steps))
 
 head(daily_totals_imputed )
+
+# Outcome 
+## The 5-minute interval with the maximum average steps is: 835
 ## # A tibble: 6 × 2
 ##   date       total_steps
 ##   <IDate>          <dbl>
@@ -601,6 +612,9 @@ averages <- data_imputed %>%
 ## `.groups` argument.
 
 head(averages)
+
+# Outcome 
+## The 5-minute interval with the maximum average steps is: 835
 ## # A tibble: 6 × 3
 ## # Groups:   interval [3]
 ##   interval day_type avg_steps
@@ -614,7 +628,6 @@ head(averages)
 
 
 ```
-
 
 
 ### Create a panel plot with different colors for comparison
@@ -635,6 +648,7 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
 ```{r}
 par(mfrow = c(1, 1))
 ```
+
 # Question 5
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -650,7 +664,6 @@ par(mfrow = c(1, 1))
     * Understanding these differences is important for effective intervention planning.
     
  
-
 # Summary "Reproducible Research Analysis: Activity Monitoring Data"
 
 ## Part 1: Imputing Missing Data
@@ -678,7 +691,6 @@ par(mfrow = c(1, 1))
       effectively.
 
    
-
 # Introduction
     This data analysis study explores activity monitoring data collected over two months. 
     It aims to answer key questions related to daily step patterns and activity trends.       
@@ -694,8 +706,7 @@ par(mfrow = c(1, 1))
     The following sections detail specific recommendations and actions to take in each aspect of the study, 
     setting the stage for an enhanced and insightful analysis.
     
-    
-    
+      
 ### Descriptive statistics 
     Descriptive statistics provide a summary of key characteristics of the data
     In this case, a computed summary statistics for the 'steps', 'date', and 'interval' columns.
@@ -703,6 +714,8 @@ par(mfrow = c(1, 1))
 ```{r}
 # Examine the contents of the database
 glimpse(data)
+
+# Outcome 
 ## Rows: 17,568
 ## Columns: 3
 ## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
@@ -711,6 +724,8 @@ glimpse(data)
 
                        
 data
+
+# Outcome 
 ##        steps       date interval
 ##     1:    NA 2012-10-01        0
 ##     2:    NA 2012-10-01        5
@@ -725,16 +740,19 @@ data
 ## 17568:    NA 2012-11-30     2355
 
 as.data.frame(sort(names(data)))
+
+# Outcome 
 ##   sort(names(data))
 ## 1              date
 ## 2          interval
 ## 3             steps
 
 lapply(data, summary)
+
+# Outcome 
 ## $steps
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
-## 
 ## $date
 ##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
@@ -743,6 +761,8 @@ lapply(data, summary)
 ##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
 
 str(data)
+
+# Outcome 
 ## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
 ##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
@@ -763,6 +783,8 @@ data$steps[is.na(data$steps)]
 ## numeric(0)
 ```{r}
 str(data)
+
+# Outcome 
 ## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
 ##  $ steps   : num  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
@@ -770,6 +792,8 @@ str(data)
 ##  - attr(*, ".internal.selfref")=<externalptr>
 
 data
+
+# Outcome 
 ##        steps       date interval
 ##     1:     0 2012-10-01        0
 ##     2:     0 2012-10-01        5
@@ -793,6 +817,8 @@ data
 
 data_no_duplicates <- data[!duplicated(data), ]
 data_no_duplicates
+
+# Outcome 
 ##        steps       date interval
 ##     1:     0 2012-10-01        0
 ##     2:     0 2012-10-01        5
@@ -840,16 +866,24 @@ data_no_duplicates
 ```{r}
 # You can skip these checks if your data doesn't have such issues.
 is.na(1)
+
+# Outcome 
 ## [1] FALSE
 
 is.finite(1) # This code checks whether the value 1 is a finite numeric value.The result will be TRUE because 1 is indeed a finite numeric value.
 
 any(is.na(data$steps))
+
+# Outcome 
 ## [1] FALSE
 
 any(is.finite(data$steps))
+
+# Outcome 
 ## [1] TRUE
 ```
+
+
 ### Visualization:
     a. Histogram of Steps (Including NA's):
 ```{r}
@@ -883,7 +917,6 @@ grid.arrange(hist_with_na, hist_without_na, ncol = 2)
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/873f25ca-02c8-4c4d-8a0a-97bc6434e812)
-
 
 
 ### b. Time Series Plot of Steps:
@@ -956,7 +989,6 @@ ggplot(data, aes(x = date, y = steps)) +
 
     6. CDC. (2021). Physical Activity Guidelines for Americans. Retrieved from
        https://www.cdc.gov/physicalactivity/guidelines/index.htm
-
 
 
 ```{r}
