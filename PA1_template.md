@@ -100,16 +100,6 @@ Funtion.packages <- function(vector.packages){
 Funtion.packages(vector.packages)
 
 ```
-## [1] "readr"
-## [1] "ggplot2"
-## [1] "dplyr"
-## [1] "gridExtra"
-## [1] "rstudioapi"
-## [1] "data.table"
-## [1] "lubridate"
-## [1] "lattice"
-## [1] "ggraph"
-
 ### Load the dataset
 ```{r}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
