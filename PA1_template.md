@@ -420,8 +420,9 @@ cat("Mean total number of steps taken per day (After Imputation):", mean_steps_i
 cat("Median total number of steps taken per day (After Imputation):", median_steps_imputed, "\n")
 
 ```
-## Mean total number of steps taken per day (After Imputation): 10766.19
-## Median total number of steps taken per day (After Imputation): 10766.19
+### Outcome
+    ## Mean total number of steps taken per day (After Imputation): 10766.19
+    ## Median total number of steps taken per day (After Imputation): 10766.19
 
 # Question 3 
 ## Do these values differ from the estimates from the first part of the assignment? 
