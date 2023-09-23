@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research Analysis: Activity Monitoring Data"
 author: "Sonja Janssen-Sahebzad"
-date: "`r Sys.Date()`"
+date: `r Sys.Date()`
 output: html_document
 ---
 
