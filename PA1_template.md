@@ -519,15 +519,15 @@ hist(daily_totals_after$total_steps_after,
 # Set title above both histograms 
 title("Histogram of Total Steps Taken Each Day (Before and After Imputation)", 
       outer = TRUE, line = -1.0, adj = 0.2, cex.main = 1.2)  # Adjust cex.main for font size
-
+```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/58c04eae-f5db-47cf-a6d5-fbe996901f00)
        ## plot 5
 
+       
 # Reset the par settings to default (important for rendering)
+```{r}
 par(mfrow = c(1, 1))
-
 ```
-
 
 # Question 4
 ## What is the impact of imputing missing data on the estimates of the total daily number of steps?
