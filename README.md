@@ -98,4 +98,4 @@ In addition to submitting the URL for your GitHub repository, you will need to s
 
 https://github.com/rdpeng/RepData_PeerAssessment1
 
-[#f03c15](7c376cc5447f11537f8740af8e07d6facc3d9645)
+7c376cc5447f11537f8740af8e07d6facc3d9645
