@@ -5,8 +5,10 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
+library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Introduction
