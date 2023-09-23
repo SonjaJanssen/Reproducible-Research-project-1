@@ -123,53 +123,50 @@ data <- data.table::fread(input = "data/activity.csv")
 
 ### Examine the contents of the database
 ```{r}
-glimpse(data)
-
-# Outcome
-## Rows: 17,568
-## Columns: 3
-## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
-                         
+glimpse(data)                         
 data
-
-# Outcome
-##        steps       date interval
-##     1:    NA 2012-10-01        0
-##     2:    NA 2012-10-01        5
-##     3:    NA 2012-10-01       10
-##     4:    NA 2012-10-01       15
-##     5:    NA 2012-10-01       20
-##    ---                          
-## 17564:    NA 2012-11-30     2335
-## 17565:    NA 2012-11-30     2340
-## 17566:    NA 2012-11-30     2345
-## 17567:    NA 2012-11-30     2350
-## 17568:    NA 2012-11-30     2355
-
 as.data.frame(sort(names(data)))
-
-# Outcome 
-##   sort(names(data))
-## 1              date
-## 2          interval
-## 3             steps
-
 lapply(data, summary)
-
-# Outcome 
-## $steps
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
-
-## $date
-##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
-## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
-
-## $interval
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
 ```
+## Outcome 
+     glimpse(data)
+     Rows: 17,568
+     Columns: 3
+     $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+     $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
+
+     data
+            steps       date interval
+         1:    NA 2012-10-01        0
+         2:    NA 2012-10-01        5
+         3:    NA 2012-10-01       10
+         4:    NA 2012-10-01       15
+         5:    NA 2012-10-01       20
+                              
+     17564:    NA 2012-11-30     2335
+     17565:    NA 2012-11-30     2340
+     17566:    NA 2012-11-30     2345
+     17567:    NA 2012-11-30     2350
+     17568:    NA 2012-11-30     2355
+
+     as.data.frame(sort(names(data)))
+        sort(names(data))
+      1              date
+      2          interval
+      3             steps
+
+     lapply(data, summary)
+     $steps
+      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0.00    0.00    0.00   37.38   12.00  806.00    2304 
+
+      $date
+             Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+      "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
+
+      $interval
+      Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0.0   588.8  1177.5  1177.5  1766.2  2355.0
 
 
 ### Plot the matrix
@@ -199,18 +196,20 @@ total_steps_per_day <- data %>%
     group_by(date) %>%
     summarise(total_steps = sum(steps, na.rm = TRUE))
 head(total_steps_per_day)
+```
+## Outcome
+    head(total_steps_per_day)
+     A tibble: 6 × 2
+     date       total_steps
+    <IDate>          <int>
+    1 2012-10-01          0
+    2 2012-10-02        126
+    3 2012-10-03      11352
+    4 2012-10-04      12116
+    5 2012-10-05      13294
+    6 2012-10-06      15420
 
-# Outcome 
-## A tibble: 6 × 2
-## date       total_steps
-##    <IDate>          <int>
-##    1 2012-10-01          0
-##    2 2012-10-02        126
-##    3 2012-10-03      11352
-##    4 2012-10-04      12116
-##    5 2012-10-05      13294
-##    6 2012-10-06      15420
-
+```{r}
 ## library used
 library(dplyr)
 library(ggplot2)
@@ -224,7 +223,7 @@ hist(total_steps_per_day$total_steps,
      ylab = "Frequency")
      
 ```
-
+#
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d36fec7f-c113-44e5-8cf9-23843de9e45a)
 
 
@@ -383,21 +382,20 @@ write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
 ### Check the first few rows of the imputed dataset
 ```{r}
 head(data_imputed)
-
-# Outcome 
-## The 5-minute interval with the maximum average steps is: 835
-## # A tibble: 6 × 3
-## # Groups:   interval [6]
-##    steps date       interval
-##    <dbl> <IDate>       <int>
-## 1 1.72   2012-10-01        0
-## 2 0.340  2012-10-01        5
-## 3 0.132  2012-10-01       10
-## 4 0.151  2012-10-01       15
-## 5 0.0755 2012-10-01       20
-## 6 2.09   2012-10-01       25
-
 ```
+## Outcome 
+ The 5-minute interval with the maximum average steps is: 835
+  A tibble: 6 × 3
+  Groups:   interval [6]
+    steps date       interval
+    <dbl> <IDate>       <int>
+ 1 1.72   2012-10-01        0
+ 2 0.340  2012-10-01        5
+ 3 0.132  2012-10-01       10
+ 4 0.151  2012-10-01       15
+ 5 0.0755 2012-10-01       20
+ 6 2.09   2012-10-01       25
+
 
 ### First impute the daily total steps     
 ```{r}
@@ -406,20 +404,21 @@ daily_totals_imputed <- data_imputed %>%
     summarise(total_steps = sum(steps))
 
 head(daily_totals_imputed )
-
-# Outcome 
-## The 5-minute interval with the maximum average steps is: 835
-## # A tibble: 6 × 2
-##   date       total_steps
-##   <IDate>          <dbl>
-## 1 2012-10-01      10766.
-## 2 2012-10-02        126 
-## 3 2012-10-03      11352 
-## 4 2012-10-04      12116 
-## 5 2012-10-05      13294 
-## 6 2012-10-06      15420
-
 ```
+## Outcome
+    head(daily_totals_imputed )
+     The 5-minute interval with the maximum average steps is: 835
+     A tibble: 6 × 2
+   date       total_steps
+   <IDate>          <dbl>
+ 1 2012-10-01      10766.
+ 2 2012-10-02        126 
+ 3 2012-10-03      11352 
+ 4 2012-10-04      12116 
+ 5 2012-10-05      13294 
+ 6 2012-10-06      15420
+
+
 
 ### Create a histogram of the total number of steps taken each day
       R Colors: blues9, rainbow(n), heat.colors(n), terrain.colors(n), topo.colors(n), and cm.colors(n).
@@ -616,21 +615,20 @@ averages <- data_imputed %>%
 ## `.groups` argument.
 
 head(averages)
-
-# Outcome 
-## The 5-minute interval with the maximum average steps is: 835
-## # A tibble: 6 × 3
-## # Groups:   interval [3]
-##   interval day_type avg_steps
-##      <int> <chr>        <dbl>
-## 1        0 weekday     2.25  
-## 2        0 weekend     0.215 
-## 3        5 weekday     0.445 
-## 4        5 weekend     0.0425
-## 5       10 weekday     0.173 
-## 6       10 weekend     0.0165
-
 ```
+## Outcome 
+    head(averages)
+ The 5-minute interval with the maximum average steps is: 835
+  A tibble: 6 × 3
+  Groups:   interval [3]
+   interval day_type avg_steps
+    <int>      <chr>        <dbl>
+     1        0 weekday     2.25  
+     2        0 weekend     0.215 
+     3        5 weekday     0.445 
+     4        5 weekend     0.0425
+     5       10 weekday     0.173 
+     6       10 weekend     0.0165
 
 
 ### Create a panel plot with different colors for comparison
@@ -716,62 +714,52 @@ par(mfrow = c(1, 1))
 
 ```{r}
 # Examine the contents of the database
-glimpse(data)
-
-# Outcome 
-## Rows: 17,568
-## Columns: 3
-## $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-## $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
-## $ interval <int> 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 100, 105, 110, …
-
-                       
+glimpse(data)                      
 data
-
-# Outcome 
-##        steps       date interval
-##     1:    NA 2012-10-01        0
-##     2:    NA 2012-10-01        5
-##     3:    NA 2012-10-01       10
-##     4:    NA 2012-10-01       15
-##     5:    NA 2012-10-01       20
-##    ---                          
-## 17564:    NA 2012-11-30     2335
-## 17565:    NA 2012-11-30     2340
-## 17566:    NA 2012-11-30     2345
-## 17567:    NA 2012-11-30     2350
-## 17568:    NA 2012-11-30     2355
-
 as.data.frame(sort(names(data)))
-
-# Outcome 
-##   sort(names(data))
-## 1              date
-## 2          interval
-## 3             steps
-
 lapply(data, summary)
-
-# Outcome 
-## $steps
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##    0.00    0.00    0.00   37.38   12.00  806.00    2304 
-## $date
-##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
-## "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
-## $interval
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##     0.0   588.8  1177.5  1177.5  1766.2  2355.0
-
 str(data)
-
-# Outcome 
-## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
-##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
-##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
-##  - attr(*, ".internal.selfref")=<externalptr>
 ```
+## Outcome 
+     glimpse(data)
+     Rows: 17,568
+     Columns: 3
+     $ steps    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+     $ date     <IDate> 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01, 2012-10-01,…
+
+     data
+            steps       date interval
+         1:    NA 2012-10-01        0
+         2:    NA 2012-10-01        5
+         3:    NA 2012-10-01       10
+         4:    NA 2012-10-01       15
+         5:    NA 2012-10-01       20
+                              
+     17564:    NA 2012-11-30     2335
+     17565:    NA 2012-11-30     2340
+     17566:    NA 2012-11-30     2345
+     17567:    NA 2012-11-30     2350
+     17568:    NA 2012-11-30     2355
+
+     as.data.frame(sort(names(data)))
+        sort(names(data))
+      1              date
+      2          interval
+      3             steps
+
+     lapply(data, summary)
+     $steps
+      Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0.00    0.00    0.00   37.38   12.00  806.00    2304 
+
+      $date
+             Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+      "2012-10-01" "2012-10-16" "2012-10-31" "2012-10-31" "2012-11-15" "2012-11-30" 
+
+      $interval
+      Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0.0   588.8  1177.5  1177.5  1766.2  2355.0
+
  
 ### Data Cleaning:
     a. Handling Missing Values (NA's in the 'steps' column):
@@ -783,59 +771,58 @@ str(data)
 data$steps[is.na(data$steps)] <- median(data$steps, na.rm = TRUE)
 data$steps[is.na(data$steps)]
 ```
-## numeric(0)
+## Outcome
+   numeric(0)
+
 ```{r}
 str(data)
-
-# Outcome 
-## Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
-##  $ steps   : num  0 0 0 0 0 0 0 0 0 0 ...
-##  $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
-##  - attr(*, ".internal.selfref")=<externalptr>
-
 data
-
-# Outcome 
-##        steps       date interval
-##     1:     0 2012-10-01        0
-##     2:     0 2012-10-01        5
-##     3:     0 2012-10-01       10
-##     4:     0 2012-10-01       15
-##     5:     0 2012-10-01       20
-##    ---                          
-## 17564:     0 2012-11-30     2335
-## 17565:     0 2012-11-30     2340
-## 17566:     0 2012-11-30     2345
-## 17567:     0 2012-11-30     2350
-## 17568:     0 2012-11-30     2355
-
 ```
+## Outcome
+str(data)
+     Classes 'data.table' and 'data.frame':   17568 obs. of  3 variables:
+      $ steps   : num  0 0 0 0 0 0 0 0 0 0 ...
+      $ date    : IDate, format: "2012-10-01" "2012-10-01" ...
+      $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
+      - attr(*, ".internal.selfref")=<externalptr>
+
+    data
+        steps       date interval
+     1:     0 2012-10-01        0
+     2:     0 2012-10-01        5
+     3:     0 2012-10-01       10
+     4:     0 2012-10-01       15
+     5:     0 2012-10-01       20
+    ---                          
+ 17564:     0 2012-11-30     2335
+ 17565:     0 2012-11-30     2340
+ 17566:     0 2012-11-30     2345
+ 17567:     0 2012-11-30     2350
+ 17568:     0 2012-11-30     2355
 
 
 ### b. Detect and remove duplicate rows:
-
 ```{r}
 # This step remains important to ensure data integrity.
 
 data_no_duplicates <- data[!duplicated(data), ]
 data_no_duplicates
-
-# Outcome 
-##        steps       date interval
-##     1:     0 2012-10-01        0
-##     2:     0 2012-10-01        5
-##     3:     0 2012-10-01       10
-##     4:     0 2012-10-01       15
-##     5:     0 2012-10-01       20
-##    ---                          
-## 17564:     0 2012-11-30     2335
-## 17565:     0 2012-11-30     2340
-## 17566:     0 2012-11-30     2345
-## 17567:     0 2012-11-30     2350
-## 17568:     0 2012-11-30     2355
-
 ```
+# Outcome 
+    data_no_duplicates
+        steps       date interval
+     1:     0 2012-10-01        0
+     2:     0 2012-10-01        5
+     3:     0 2012-10-01       10
+     4:     0 2012-10-01       15
+     5:     0 2012-10-01       20
+    ---                          
+ 17564:     0 2012-11-30     2335
+ 17565:     0 2012-11-30     2340
+ 17566:     0 2012-11-30     2345
+ 17567:     0 2012-11-30     2350
+ 17568:     0 2012-11-30     2355
+
 
 ### c. Checking for Infinite Values and Non-Numeric Values:
 
