@@ -359,7 +359,6 @@ write.csv(data_imputed, "activity_imputed.csv", row.names = FALSE)
 ### Check the first few rows of the imputed dataset
 ```{r}
 head(data_imputed)
-
 ## # A tibble: 6 × 3
 ## # Groups:   interval [6]
 ##    steps date       interval
@@ -370,6 +369,7 @@ head(data_imputed)
 ## 4 0.151  2012-10-01       15
 ## 5 0.0755 2012-10-01       20
 ## 6 2.09   2012-10-01       25
+
 ```
 
 
@@ -380,7 +380,6 @@ daily_totals_imputed <- data_imputed %>%
     summarise(total_steps = sum(steps))
 
 head(daily_totals_imputed )
-
 ## # A tibble: 6 × 2
 ##   date       total_steps
 ##   <IDate>          <dbl>
