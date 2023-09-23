@@ -127,6 +127,8 @@ lapply(data, summary)
 pairs(data[, 1:3])
 
 ```
+https://github.com/SonjaJanssen/Reproducible-Research-project-1/blob/main/RPlots/Rplot%200.1%20scatterplot_matrix.png?raw=true
+
 
 # Step 2
 ## What is mean total number of steps taken per day?
