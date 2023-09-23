@@ -426,6 +426,7 @@ title("Histogram of Total Steps Taken Each Day (Before and After Imputation)",
 par(mfrow = c(1, 1))
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/7e8f1ae4-0f21-4f88-b691-9c2f1291bbdb)
 
 # Question 4
 ## What is the impact of imputing missing data on the estimates of the total daily number of steps?
@@ -518,6 +519,7 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
     scale_color_manual(values = c("weekday" = "blue", "weekend" = "red"))
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/bbfc9371-7f28-4d57-b7af-9a4cdd595429)
 
 ### Reset plot area layout
 ```{r}
