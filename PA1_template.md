@@ -100,16 +100,6 @@ Funtion.packages <- function(vector.packages){
 Funtion.packages(vector.packages)
 
 ```
-
-### Load the dataset
-```{r}
-fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
-download.file(fileUrl, destfile = paste0(getwd(), '/repdata%2Fdata%2Factivity.zip'), method = "curl")
-unzip("repdata%2Fdata%2Factivity.zip",exdir = "data")
-data <- data.table::fread(input = "data/activity.csv")
-
-```
-### > Funtion.packages(vector.packages)
     #### [1] "readr"
     #### [1] "ggplot2"
     #### [1] "dplyr"
@@ -119,6 +109,15 @@ data <- data.table::fread(input = "data/activity.csv")
     #### [1] "lubridate"
     #### [1] "lattice"
     #### [1] "ggraph"
+
+### Load the dataset
+```{r}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(fileUrl, destfile = paste0(getwd(), '/repdata%2Fdata%2Factivity.zip'), method = "curl")
+unzip("repdata%2Fdata%2Factivity.zip",exdir = "data")
+data <- data.table::fread(input = "data/activity.csv")
+
+```
 
 ### Examine the contents of the database
 ```{r}
