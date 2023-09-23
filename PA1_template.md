@@ -614,17 +614,17 @@ head(averages)
 ```
 ## Outcome 
     head(averages)
- The 5-minute interval with the maximum average steps is: 835
-  A tibble: 6 × 3
-  Groups:   interval [3]
-   interval day_type avg_steps
-    <int>      <chr>        <dbl>
-     1        0 weekday     2.25  
-     2        0 weekend     0.215 
-     3        5 weekday     0.445 
-     4        5 weekend     0.0425
-     5       10 weekday     0.173 
-     6       10 weekend     0.0165
+     The 5-minute interval with the maximum average steps is: 835
+      A tibble: 6 × 3
+      Groups:   interval [3]
+       interval day_type avg_steps
+        <int>      <chr>        <dbl>
+         1        0 weekday     2.25  
+         2        0 weekend     0.215 
+         3        5 weekday     0.445 
+         4        5 weekend     0.0425
+         5       10 weekday     0.173 
+         6       10 weekend     0.0165
 
 
 ### Create a panel plot with different colors for comparison
