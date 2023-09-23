@@ -109,6 +109,16 @@ unzip("repdata%2Fdata%2Factivity.zip",exdir = "data")
 data <- data.table::fread(input = "data/activity.csv")
 
 ```
+### > Funtion.packages(vector.packages)
+#### [1] "readr"
+#### [1] "ggplot2"
+#### [1] "dplyr"
+#### [1] "gridExtra"
+#### [1] "rstudioapi"
+#### [1] "data.table"
+#### [1] "lubridate"
+#### [1] "lattice"
+#### [1] "ggraph"
 
 ### Examine the contents of the database
 ```{r}
