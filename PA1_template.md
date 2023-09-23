@@ -700,6 +700,7 @@ ggplot(data, aes(x = date, y = steps)) +
   labs(title = "Time Series Plot of Steps", x = "Date", y = "Steps")
 
 ```
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d977b1d0-7593-433f-b6cf-1104924bc28e)
 
 # Further Exploration of Patterns:
 
