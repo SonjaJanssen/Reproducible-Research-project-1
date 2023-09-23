@@ -162,6 +162,7 @@ hist(total_steps_per_day$total_steps,
      ylab = "Frequency")
      
 ```
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/fddda368-40aa-48d7-92f4-2e7ea10b93d5)
 
 ### Calculate and report the mean total number of steps taken per day
 ```{r}
@@ -332,9 +333,7 @@ hist(daily_totals_imputed$total_steps,
       ylim = y_axis_range)  # Set y-axis range) 
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/e9f5aaae-44cc-4957-ad94-f9af21f1d5f7)
-
-
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/0975882f-4755-4292-96e6-7337524fc82b)
 
 ### Calculate and report the mean and median total number of steps taken per day
 ```{r}
@@ -426,7 +425,7 @@ title("Histogram of Total Steps Taken Each Day (Before and After Imputation)",
 par(mfrow = c(1, 1))
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/7e8f1ae4-0f21-4f88-b691-9c2f1291bbdb)
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/0a8fa8f0-c353-4d49-afc7-af0662e604e3)
 
 # Question 4
 ## What is the impact of imputing missing data on the estimates of the total daily number of steps?
@@ -519,7 +518,7 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
     scale_color_manual(values = c("weekday" = "blue", "weekend" = "red"))
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/bbfc9371-7f28-4d57-b7af-9a4cdd595429)
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f855ecc4-3cd8-4773-9db4-5958a651e518)
 
 ### Reset plot area layout
 ```{r}
@@ -677,7 +676,7 @@ ggplot(data, aes(x = steps)) +
   labs(title = "Histogram of Steps (Including NA's)", x = "Steps", y = "Frequency")
 
 ```
-
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/fab50c79-8e65-44a5-946f-00bf53da835a)
 
 ```{r}
 # Load necessary libraries (if not already loaded)
@@ -698,7 +697,7 @@ hist_without_na <- ggplot(data[!is.na(data$steps), ], aes(x = steps)) +
 grid.arrange(hist_with_na, hist_without_na, ncol = 2)
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d125affa-ffe6-4654-a8b3-a62bfe02ddc4)
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f3988de8-7b19-4568-9c06-c67daa5badfe)
 
 
 ### b. Time Series Plot of Steps:
@@ -710,7 +709,7 @@ ggplot(data, aes(x = date, y = steps)) +
   labs(title = "Time Series Plot of Steps", x = "Date", y = "Steps")
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d977b1d0-7593-433f-b6cf-1104924bc28e)
+![download](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/b0cc5df3-1215-42ea-a253-088391782d6d)
 
 # Further Exploration of Patterns:
 
