@@ -282,7 +282,8 @@ ggplot(avg_steps_per_interval, aes(x = interval, y = avg_steps)) +
          y = "Average Number of Steps") 
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/a2ad6c6b-c0e6-4218-8694-e487633283e3)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/32421fef-ca79-4a6d-bd8d-b038d0ef195e)
+
 
 
 ### Find the 5-minute interval with the maximum average steps
