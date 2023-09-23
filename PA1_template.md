@@ -177,7 +177,7 @@ pairs(data[, 1:3])
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f1cc9045-3084-4787-93c4-28533df97b03)
-        ###### plot 1
+    ## plot 1
 
 # Step 2
 ## What is mean total number of steps taken per day?
@@ -225,7 +225,7 @@ hist(total_steps_per_day$total_steps,
 ```
 #
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d36fec7f-c113-44e5-8cf9-23843de9e45a)
-
+     ## plot 2
 
 ### Calculate and report the mean total number of steps taken per day
 ```{r}
@@ -284,7 +284,7 @@ ggplot(avg_steps_per_interval, aes(x = interval, y = avg_steps)) +
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/a2ad6c6b-c0e6-4218-8694-e487633283e3)
-
+     ## plot 3
 
 
 ### Find the 5-minute interval with the maximum average steps
@@ -431,7 +431,7 @@ hist(daily_totals_imputed$total_steps,
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/146477aa-ba30-4127-86e0-a703ae7ea796)
-
+      ## plot 4
 
 ### Calculate and report the mean and median total number of steps taken per day
 ```{r}
@@ -521,7 +521,7 @@ title("Histogram of Total Steps Taken Each Day (Before and After Imputation)",
       outer = TRUE, line = -1.0, adj = 0.2, cex.main = 1.2)  # Adjust cex.main for font size
 
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/58c04eae-f5db-47cf-a6d5-fbe996901f00)
-
+       ## plot 5
 
 # Reset the par settings to default (important for rendering)
 par(mfrow = c(1, 1))
@@ -636,10 +636,9 @@ ggplot(averages, aes(x = interval, y = avg_steps, color = day_type)) +
     ylab("Average Number of Steps") +
     labs(title = "Average Number of Steps Taken per 5-Minute Interval (Weekdays vs. Weekends)") +
     scale_color_manual(values = c("weekday" = "blue", "weekend" = "red"))
-
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/eea6134d-b091-41ca-94ed-45f03f12aecb)
-
+     ## plot 6
 
 ### Reset plot area layout
 ```{r}
@@ -881,7 +880,7 @@ ggplot(data, aes(x = steps)) +
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/9e57f8fd-e4fb-436f-b53a-5ca4ee4cddde)
-
+      ## plot 7
 
 ```{r}
 # Load necessary libraries (if not already loaded)
@@ -903,7 +902,7 @@ grid.arrange(hist_with_na, hist_without_na, ncol = 2)
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/873f25ca-02c8-4c4d-8a0a-97bc6434e812)
-
+       ## plot 8
 
 ### b. Time Series Plot of Steps:
 ```{r}
@@ -915,7 +914,7 @@ ggplot(data, aes(x = date, y = steps)) +
 
 ```
 ![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/ff50c47c-b4b5-4e12-a1df-b5caaa1fdc6d)
-
+      ## plot 9
 
 # Further Exploration of Patterns:
 
