@@ -224,9 +224,7 @@ hist(total_steps_per_day$total_steps,
      ylab = "Frequency")
      
 ```
-#
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/d36fec7f-c113-44e5-8cf9-23843de9e45a)
- 
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f9346c1d-2ab6-4a8f-9fc2-ba9eaa96c774)
 
 ### Calculate and report the mean total number of steps taken per day
 ```{r}
