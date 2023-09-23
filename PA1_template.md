@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-    This R Markdown document is created as part of the 5th course module at John Hopkins University 
+    This R Markdown document is created as part of the 5th coursera module at John Hopkins University 
     for the Data Science Research Project “Reproducible Research,” specifically for “Peer Assessment 1.” 
     It demonstrates literate programming techniques using Markdown and R. The assignment involves 
     addressing 5 key questions related to processing and analyzing “activity monitoring data.” This 
