@@ -176,7 +176,8 @@ lapply(data, summary)
 pairs(data[, 1:3])
 
 ```
-![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/f1cc9045-3084-4787-93c4-28533df97b03)
+![image](https://github.com/SonjaJanssen/Reproducible-Research-project-1/assets/123073089/1faa34aa-8243-4e0d-b3e4-5f97a8aeb84c)
+
     
 
 # Step 2
